@@ -1,0 +1,26 @@
+<div *ngIf="loading" class="spinner">
+  <div *ngIf="loading" class="spinner-border">
+  </div>
+</div>
+<table *ngIf="!loading" class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Placa</th>
+    <th scope="col">Marca</th>
+    <th scope="col">Modelo</th>
+    <th scope="col">Chassi</th>
+    <th scope="col">Renavam</th>
+    <th scope="col">Ano</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let veiculo of veiculos; index as i; first as isFirst">
+    <td>{{veiculo.placa}}</td>
+    <td>{{veiculo.marca}}</td>
+    <td>{{veiculo.modelo}}</td>
+    <td>{{veiculo.chassi}}</td>
+    <td>{{veiculo.renavam}}</td>
+    <td>{{veiculo.ano}}</td>
+  </tr>
+  </tbody>
+</table>
