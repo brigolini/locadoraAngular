@@ -3,7 +3,7 @@ exports.Schema = {
     properties: {
         id: {
             type: 'number',
-            required: true
+            required: false
         },
         placa: {
             type: 'string',

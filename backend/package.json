@@ -15,7 +15,12 @@
     "express": "^4.17.1",
     "express-jsonschema": "^1.1.6",
     "morgan": "^1.10.0",
-    "node-json-db": "^1.1.0"
+    "jwt-simple": "*",
+    "node-json-db": "^1.1.0",
+    "passport": "*",
+    "passport-http-bearer": "^1.0.1",
+    "passport-jwt": "*",
+    "passport-local": "*"
   },
   "devDependencies": {
     "chai": "^4.2.0",

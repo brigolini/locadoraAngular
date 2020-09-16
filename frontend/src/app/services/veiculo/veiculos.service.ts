@@ -14,9 +14,9 @@ export class VeiculosService {
 
   // tslint:disable-next-line:typedef
   private async request(method: string, url: string, data?: any) {
-
-    console.log('request ' + JSON.stringify(data));
+    const header = {Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZSIsImlhdCI6MTYwMDI5MjczMDIxMH0.9xC4Myd9pktMETd8vQo7hIoRdxdvfDaXA8rZEuPLAV8`};
     const result = this.http.request(method, url, {
+      headers: header,
       body: data,
       responseType: 'json',
       observe: 'body',
@@ -27,8 +27,28 @@ export class VeiculosService {
   }
 
   // tslint:disable-next-line:typedef
-  getVeiculos(): Promise<Veiculo[]> {
+  getAll(): Promise<Veiculo[]> {
     return this.request('get', `${baseUrl}/veiculos`);
+  }
+
+  // tslint:disable-next-line:typedef
+  getById(id: number): Promise<Veiculo> {
+    return this.request('get', `${baseUrl}/veiculos/${id}`);
+  }
+
+  // tslint:disable-next-line:typedef
+  delete(id: number): Promise<Veiculo[]> {
+    return this.request('delete', `${baseUrl}/veiculos/${id}`);
+  }
+
+  // tslint:disable-next-line:typedef
+  create(veiculo: Veiculo): Promise<true> {
+    return this.request('post', `${baseUrl}/veiculos/`, veiculo);
+  }
+
+  // tslint:disable-next-line:typedef
+  update(veiculo: Veiculo): Promise<true> {
+    return this.request('put', `${baseUrl}/veiculos/${veiculo.id}`, veiculo);
   }
 
 

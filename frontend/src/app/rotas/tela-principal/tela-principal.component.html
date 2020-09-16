@@ -1,0 +1,12 @@
+<div id="menu" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" (click)="toggleMenu()">&times;</a>
+  <a [routerLink] = "'/lista'">Listagem</a>
+  <a [routerLink] = "'/novo'">Novo Veículo</a>
+
+</div>
+<div id="main" class="main">
+<router-outlet></router-outlet>
+</div>
+
+
+

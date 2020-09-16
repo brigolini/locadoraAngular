@@ -1,0 +1,142 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="save()"
+          [formGroup]="veiculoForm">
+
+      <div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="placa">Placa</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="placa"
+                 type="text"
+                 placeholder="Placa (obrigatório)"
+                 formControlName="placa"
+                 [ngClass]="{'is-invalid': displayMessage.placa }" />
+          <span class="invalid-feedback">
+            {{displayMessage.placa}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="marca">Marca</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="marca"
+                 type="text"
+                 placeholder="Marca (obrigatório)"
+                 formControlName="marca"
+                 [ngClass]="{'is-invalid': displayMessage.marca }" />
+          <span class="invalid-feedback">
+            {{displayMessage.marca}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="modelo">Modelo</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="modelo"
+                 type="text"
+                 placeholder="Modelo (obrigatório)"
+                 formControlName="modelo"
+                 [ngClass]="{'is-invalid': displayMessage.modelo }" />
+          <span class="invalid-feedback">
+            {{displayMessage.modelo}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="chassi">Chassi</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="chassi"
+                 type="text"
+                 placeholder="Chassi (obrigatório)"
+                 formControlName="chassi"
+                 [ngClass]="{'is-invalid': displayMessage.chassi }" />
+          <span class="invalid-feedback">
+            {{displayMessage.chassi}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="renavam">Renavam</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="renavam"
+                 type="number"
+                 placeholder="Renavam (obrigatório)"
+                 formControlName="renavam"
+                 [ngClass]="{'is-invalid': displayMessage.placa }" />
+          <span class="invalid-feedback">
+            {{displayMessage.renavam}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="ano">Ano</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="ano"
+                 type="number"
+                 placeholder="Ano (obrigatório)"
+                 placeholder="Ano (obrigatório)"
+                 formControlName="ano"
+                 [ngClass]="{'is-invalid': displayMessage.ano }" />
+          <span class="invalid-feedback">
+            {{displayMessage.ano}}
+          </span>
+        </div>
+      </div>
+
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="veiculoForm.valid ? 'Salva seu veículo' : 'Faltam dados a serem preenchidos'"
+                  [disabled]="!veiculoForm.valid">
+            Salvar
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:90px;"
+                  type="button"
+                  title="Cancelar a edição e ir para listagem"
+                  [routerLink]="['/lista']">
+            Cancelar
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Excluir o veículo"
+                  (click)="delete()">
+            Excluir
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

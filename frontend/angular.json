@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "infosistemas"
+  "defaultProject": "infosistemas",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
